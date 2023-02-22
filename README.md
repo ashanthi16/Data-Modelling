@@ -64,6 +64,7 @@ data frame.
 ### **4.0 Data modelling and exploration**
 #### **4.1 Exploratory Analysis**
 #####**4.1.1Univariate Analysis** 
+
 Below columns were analysed individually to get an understanding of the dataset
 
 Fig 1 – This pie graphs shows what percentage of resigned and current employees in this dataset. The majority in this dataset - 84% are current employees and the remaining 16% is only the resigned staff. Even though the resigned portion is comparatively a low figure, but the characteristics of the resigned staff will be a vital analysing factor when predicting the next in line for resignation.
@@ -177,7 +178,39 @@ In all these K – means models the most suitable k is found out by using the be
 
 *  Silhouette method – In this method, to calculate the mean silhouette coefficient will be using the silhouette_score() function and then plot the results to find the better k.
 
-4.2.1.3 DBSCAN [Model 1] 
-In this model I will be subsetting all the columns for cluster analysis like k means model 1. In order to 
-find the appropriate number of clusters, most suitable number for the epsilon should be found out.
+######**4.2.1.3 DBSCAN [Model 1]**
+In this model I will be subsetting all the columns for cluster analysis like k means model 1. In order to find the appropriate number of clusters, most suitable number for the epsilon should be found out.
+
+######**DBSCAN [Model 2]**
+In this model I will be subsetting the numerical columns only for the cluster analysis. In order to find the appropriate number of clusters, most suitable number for the epsilon should be found out.
+
+### **5.0 Results**
+
+K – Means [Model 1] – In this method as described above, subsetting all the columns and all categorical variables have been transformed to numerical variables and a new dataset is subset.
+
+* Elbow Method – Set the k range from 1 to 11 and plotted the graph with Number of clusters in x axis and Inertia in y axis. The plot (Fig 27) illustrates that as k increases the WCSS drops. There’s a significant WCSS drop up to where k =4 and after k >4 we can see that fading returns in the decrease of WCSS. Therefore, the elbow point which is k =4 as a suitable value of k for this model.
+
+* Silhouette Method – Set the k range from 2 to 11 and plotted the graph with Number of clusters in x axis and Silhouette Coefficient in y axis. The plot (Fig 28) exemplifies that when number of clusters increasing the silhouette coefficient keep decreasing but there’s a point where highest silhouette coefficient can be seen, which is k = 4.
+
+* After identifying the most suitable k, its is run for the model and group the data into clusters. Then a new dataset is created, and cluster is added to the dataset as a sperate column.
+
+* Later the clusters can be identified using the value_count() feature by different variables.
+
+* Then the comparative plots can be created with the required variables to have a better understanding the data with clusters and original data (Fig 29)
+
+* When comparing the original data and Clustered data plots (Fig 29) it indicates that clustered data plot has got sensible set of 4 clusters and the highest cluster belongs to the range wheremonthly income is less than 5000 and age range is between 25- 30. I believe this is a good model to be further explored.
+
+K – Means [Model 2] – In this method as described above, subsetting only numerical columns as a new 
+dataset
+
+• Elbow Method – Set the k range from 5 to 20 and plotted the graph with Number of clusters 
+in x axis and Inertia in y axis. The plot (Fig 30) illustrates that when k increases the WCSS drops. 
+There’s a significant WCSS drop up to where k =11 and after k >11 we can see that fading 
+returns in the decrease of WCSS. Therefore, the elbow point which is k =11 as a suitable value 
+of k for this model.
+• Silhouette Method – Set the k range from 6 to 20 and plotted the graph with Number of 
+clusters in x axis and Silhouette Coefficient in y axis. The plot (Fig 31) demonstrates that when 
+number of clusters increasing the silhouette coefficient keep decreasing but there’s a point 
+where highest silhouette coefficient can be seen, which is k = 11.
+
 
